@@ -1,0 +1,52 @@
+﻿@model IEnumerable<GuessAnimalGame.DAL.Animal>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AnimalDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasQuestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BehaviourQuestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsQuestion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnimalDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasQuestion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BehaviourQuestion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsQuestion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

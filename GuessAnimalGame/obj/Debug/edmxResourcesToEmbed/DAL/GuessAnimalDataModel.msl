@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GuessAnimalModelStoreContainer" CdmEntityContainer="GuessAnimalEntities">
+    <EntitySetMapping Name="Animals">
+      <EntityTypeMapping TypeName="GuessAnimalModel.Animal">
+        <MappingFragment StoreEntitySet="Animal">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AnimalDescription" ColumnName="AnimalDescription" />
+          <ScalarProperty Name="HasQuestion" ColumnName="HasQuestion" />
+          <ScalarProperty Name="BehaviourQuestion" ColumnName="BehaviourQuestion" />
+          <ScalarProperty Name="IsQuestion" ColumnName="IsQuestion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

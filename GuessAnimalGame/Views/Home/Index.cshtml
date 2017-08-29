@@ -1,0 +1,50 @@
+﻿@model IEnumerable<GuessAnimalGame.DAL.Animal>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <p>Guess an animal from the list below</p>    
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        -  @Html.DisplayFor(modelItem => item.AnimalDescription)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>   
+</div>
+
+<script>
+    var _guessAnimal = new GuessAnimal();
+    $(function () {
+        alert(1);
+
+
+        _guessAnimal.HasQuestionURL = "@Url.Action("GetHasQuestions", "Animals")";
+        _guessAnimal.BehaveQuestionURL = "@Url.Action("GetBehaveQuestions", "Animals")";
+        _guessAnimal.IsQuestionURL = "@Url.Action("GetIsQuestions", "Animals")";
+        _guessAnimal.CheckFoundURL = "@Url.Action("CheckIfFound", "Animals")";
+
+
+        alert(2);
+            _guessAnimal.GetQuestion();
+    } );
+</script>
+
+<div id="dialog" title="Game">
+    <p id="question">question</p>
+    <button id="btnYes" onclick="_guessAnimal.UpdateYes();">Yes</button> 
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="btnNo" onclick="_guessAnimal.UpdateNo()">No</button>
+</div>  
+
+
+
