@@ -13,7 +13,7 @@
     this.AnswerDone = 0;
 
     this.GetQuestion = function () {
-        alert(this.AnsweredQuestions.length);
+        
         if (!this.AnsweredQuestions || !this.AnsweredQuestions.length || this.AnsweredQuestions.length == 0) {
             
             this.GetHasQuestions();
@@ -33,8 +33,7 @@
            
             if (data && data.Message == "Success") {
                 var result = data.HasQuestions;
-                alert(result.length);
-
+                
                 for (var cnt = 0; cnt < result.length; cnt++) {
                     var question = new Question();
                     question.Type = 'has';
@@ -61,7 +60,7 @@
 
             if (data && data.Message == "Success") {
                 var result = data.BehaveQuestions;
-                alert(result.length);
+                
 
                 for (var cnt = 0; cnt < result.length; cnt++) {
                     var question = new Question();
@@ -89,7 +88,7 @@
 
             if (data && data.Message == "Success") {
                 var result = data.IsQuestion;
-                alert(result.length);
+                
 
                 for (var cnt = 0; cnt < result.length; cnt++) {
                     var question = new Question();
@@ -133,8 +132,7 @@
         for (var cnt = 0; cnt < this.ObjSize(NextQuestionQueue) ; cnt++) {
            
             if (NextQuestionQueue[cnt].IsAsked == 0) {
-                alert(cnt);
-                $("#question").text("It " + this.CurrentQuestion.Type + " " + NextQuestionQueue[cnt].Description);
+                 $("#question").text("It " + this.CurrentQuestion.Type + " " + NextQuestionQueue[cnt].Description);
                 NextQuestionQueue[cnt].IsAsked = 1;
                 self.CurrentQuestion = NextQuestionQueue[cnt];
                 $("#dialog").dialog();
@@ -174,14 +172,14 @@
         }
 
         var self = this;
-        alert(hasQ + "," + behaveQ + "," + isQ);
+       
         var input = hasQ + "," + behaveQ + "," + isQ;
         
         $.get(this.CheckFoundURL, {q: input}, function (data) {
            
                 if (data.count == 1) {
                     $("#dialog").dialog("close");
-                    alert(data.animal);
+                    alert("You've thought " + data.animal);
                 }
                 else {
                     if (self.CurrentQuestion == "has") {
